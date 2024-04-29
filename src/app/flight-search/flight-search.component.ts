@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-flight-search',
@@ -18,10 +19,13 @@ export class FlightSearchComponent implements OnInit {
     delayed: false
   };
 
-  constructor() { }
+  fligthData: any;
+
+  constructor(private apiService: ApiService) { }
 
 
   ngOnInit(): void {
-   
+    this.fligthData = this.apiService.callApiHandler();
+    console.log(this.fligthData, 'flights data');
   }
 }
