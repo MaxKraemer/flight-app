@@ -25,16 +25,17 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            @for (flight of filteredFlights; track $index) {
-                <tbody>
+                <tbody *ngIf="showflight">
+                    @for (flight of filteredFlights; track $index) {
                     <tr>
                       <th scope="row">{{flight.from}}</th>
                       <td>{{flight.to}}</td>
                       <td>{{flight.date | date }}</td>
                       <td>{{flight.delayed}}</td>
                     </tr>
+                }
                   </tbody>
-            }
+
           </table>
     </div>
   

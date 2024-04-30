@@ -37,10 +37,6 @@ export class FlightSearchComponent implements OnInit {
       this.filteredFlights = data;
       console.log(this.flightData, 'flights data');
     });
-
-    this.flightForm.valueChanges.subscribe(() => {
-      this.searchFlights();
-    });
   }
 
   searchFlights() {
@@ -48,5 +44,6 @@ export class FlightSearchComponent implements OnInit {
     this.filteredFlights = this.flightData.filter((flight: Flight) => {
       return flight.from === formValue.from && flight.to === formValue.to;
     });
+    this.showflight = true;
   }
 }
