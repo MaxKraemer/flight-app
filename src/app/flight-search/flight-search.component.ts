@@ -25,7 +25,9 @@ export class FlightSearchComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.fligthData = this.apiService.callApiHandler();
-    console.log(this.fligthData, 'flights data');
+    this.apiService.callApiHandler().subscribe(data => {
+      this.fligthData = data[0];
+      console.log(this.fligthData, 'flights data');
+    });
   }
 }
